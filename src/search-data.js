@@ -1,5 +1,4 @@
 import "./style.css";
-import { seeMore } from "./see-more";
 
 export async function searchData(keyword) {
   const statut = document.getElementById("statut");
@@ -35,10 +34,6 @@ export async function searchData(keyword) {
                     <h4>Type de tournage : ${place.type_tournage}</h4>
                     <p>Lieu : ${place.adresse_lieu}</p>
                     <button class="button">See more</button>
-                    <div class="see-more">
-                        <p>Date de début : ${place.date_debut}</p>
-                        <p>Date de fin : ${place.date_fin}</p>
-                    </div>
                     `;
         resultats.appendChild(div);
       }
@@ -48,6 +43,9 @@ export async function searchData(keyword) {
     statut.textContent = "Erreur API";
   }
 
-//   const button = document.querySelector("button")
-//   button.addEventListener("click", seeMore())
+  const button = document.querySelector("button")
+  button.addEventListener("click", async () => {
+        const { seeMore } = await import("./see-more");
+        seeMore()
+  })
 }
