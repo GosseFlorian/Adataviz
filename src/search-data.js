@@ -43,9 +43,12 @@ export async function searchData(keyword) {
     statut.textContent = "Erreur API";
   }
 
-  const button = document.querySelector("button")
-  button.addEventListener("click", async () => {
+  const buttons = document.querySelectorAll("button")
+
+  buttons.forEach(button => {
+    button.addEventListener('click', async () => {
         const { seeMore } = await import("./see-more");
         seeMore()
+    })
   })
 }
