@@ -33,6 +33,13 @@ export async function searchData(keyword) {
                     <h2>Title : ${place.nom_tournage}</h2>
                     <h3>Lieu : ${place.adresse_lieu}</h3>
                     <button class="button">See more</button>
+                    <p class="more-desc hide">Realisateur : ${place.nom_realisateur}</p>
+                    <p class="more-desc hide">Producteur : ${place.nom_producteur}</p>
+                    <p class="more-desc hide">Type de tournage : ${place.type_tournage}</p>
+                    <p class="more-desc hide">Année de tournage : ${place.annee_tournage}</p>
+                    <p class="more-desc hide">Date de début : ${place.date_debut}</p>
+                    <p class="more-desc hide">Date de fin : ${place.date_fin}</p>
+                    <button class="button more-desc hide">See less</button>
                     `;
         resultats.appendChild(div);
       }
@@ -42,12 +49,11 @@ export async function searchData(keyword) {
     statut.textContent = "Erreur API";
   }
 
-  const buttons = document.querySelectorAll("button")
-
+  const buttons = document.querySelectorAll(".button")
   buttons.forEach(button => {
     button.addEventListener('click', async () => {
-        const { seeMore } = await import("./see-more");
-        seeMore()
-    })
-  })
+        const { seeMoreLess } = await import("./see-more-less");
+        seeMoreLess();
+    });
+  });
 }
