@@ -12,9 +12,12 @@ export async function searchData(keyword) {
   resultats.innerHTML = "";
 
   try {
-    const response = await fetch("https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/lieux-de-tournage-a-paris/records?limit=100", {
-      signal: controller.signal,
-    });
+    const response = await fetch(
+      "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/lieux-de-tournage-a-paris/records?limit=100",
+      {
+        signal: controller.signal,
+      },
+    );
     const places = await response.json();
 
     let filtres = places.results.filter((place) => {
@@ -28,7 +31,7 @@ export async function searchData(keyword) {
       statut.textContent = `${tenFiltres.length} resultats`;
       for (let place of tenFiltres) {
         const div = document.createElement("div");
-        div.className = "place";
+        div.className = "card";
         div.innerHTML = `
                     <h2>Title : ${place.nom_tournage}</h2>
                     <h3>Lieu : ${place.adresse_lieu}</h3>
@@ -39,7 +42,7 @@ export async function searchData(keyword) {
                     <p class="more-desc hide">Année de tournage : ${place.annee_tournage}</p>
                     <p class="more-desc hide">Date de début : ${place.date_debut}</p>
                     <p class="more-desc hide">Date de fin : ${place.date_fin}</p>
-                    <button class="button more-desc hide">See less</button>
+                    <button class="button hide">See less</button>
                     `;
         resultats.appendChild(div);
       }
@@ -49,11 +52,19 @@ export async function searchData(keyword) {
     statut.textContent = "Erreur API";
   }
 
-  const buttons = document.querySelectorAll(".button")
-  buttons.forEach(button => {
-    button.addEventListener('click', async () => {
-        const { seeMoreLess } = await import("./see-more-less");
-        seeMoreLess();
+  const buttons = document.querySelectorAll(".button");
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      const parent = button.parentElement;
+
+      const moreDesc = parent.querySelectorAll(".more-desc");
+      moreDesc.forEach((element) => {
+        element.classList.toggle("hide");
+      });
+      const cardButtons = parent.querySelectorAll(".button");
+      cardButtons.forEach((button) => {
+        button.classList.toggle("hide");
+      });
     });
   });
 }
