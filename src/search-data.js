@@ -35,14 +35,13 @@ export async function searchData(keyword) {
         div.innerHTML = `
                     <h2>Title : ${place.nom_tournage}</h2>
                     <h3>Lieu : ${place.adresse_lieu}</h3>
-                    <button class="button">See more</button>
                     <p class="more-desc hide">Realisateur : ${place.nom_realisateur}</p>
                     <p class="more-desc hide">Producteur : ${place.nom_producteur}</p>
                     <p class="more-desc hide">Type de tournage : ${place.type_tournage}</p>
                     <p class="more-desc hide">Année de tournage : ${place.annee_tournage}</p>
                     <p class="more-desc hide">Date de début : ${place.date_debut}</p>
                     <p class="more-desc hide">Date de fin : ${place.date_fin}</p>
-                    <button class="button hide">See less</button>
+                    <button class="button">See more</button>
                     `;
         resultats.appendChild(div);
       }
@@ -53,18 +52,18 @@ export async function searchData(keyword) {
   }
 
   const buttons = document.querySelectorAll(".button");
-  buttons.forEach((button, index) => {
+  buttons.forEach(button => {
     button.addEventListener("click", () => {
       const parent = button.parentElement;
-
       const moreDesc = parent.querySelectorAll(".more-desc");
       moreDesc.forEach((element) => {
         element.classList.toggle("hide");
       });
-      const cardButtons = parent.querySelectorAll(".button");
-      cardButtons.forEach((button) => {
-        button.classList.toggle("hide");
-      });
+      if(button.textContent === "See more"){
+        button.textContent = "See less"
+      } else {
+        button.textContent = "See more"
+      }
     });
   });
 }
