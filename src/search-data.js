@@ -30,9 +30,8 @@ export async function searchData(keyword) {
         const div = document.createElement("div");
         div.className = "place";
         div.innerHTML = `
-                    <h3>Title : ${place.nom_tournage}</h3>
-                    <h4>Type de tournage : ${place.type_tournage}</h4>
-                    <p>Lieu : ${place.adresse_lieu}</p>
+                    <h2>Title : ${place.nom_tournage}</h2>
+                    <h3>Lieu : ${place.adresse_lieu}</h3>
                     <button class="button">See more</button>
                     `;
         resultats.appendChild(div);
