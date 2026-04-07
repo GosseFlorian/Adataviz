@@ -16,6 +16,7 @@ export function acceuilDom() {
   inputSearch.addEventListener("input", () => {
     let value = inputSearch.value;
     clearTimeout(debounce);
+    statut.textContent = "Recherche en cours...";
 
     if (value.length === 0) {
       statut.textContent = "Entrez un mot-clé pour commencer."
