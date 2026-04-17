@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-// import './App.css'
-import { Button } from "./Components/Button/Button";
+import './app.css'
 import { Card } from "./Components/Card/Card";
 import { CardList } from "./Components/CardList/CardList";
 import { SearchBar } from "./Components/SearchBar/SearchBar";
@@ -48,10 +47,10 @@ function App() {
   }
 
   function getStatut() {
-    if (inputValue.trim().length === 0) return "En attente de recherche";
+    if (inputValue.trim().length === 0) return "Entrez un mot-clé pour commencer.";
     if (isSearching) return "Recherche en cours...";
     if (filteredLieux !== null && filteredLieux.length === 0)
-      return "Pas de résultats...";
+      return "Pas de résultats pour ce mot-clé...";
     return "";
   }
 
@@ -77,10 +76,10 @@ function App() {
 
   return (
     <>
-      <p>user input : {inputValue}</p>
-      <SearchBar onInput={onInput} placeholder="Je recherche" />
+      <h1 className="title">Lieux de tournage à Paris</h1>
+      <SearchBar onInput={onInput} placeholder="Tapez ici pour rechercher..." />
 
-      <p>{getStatut()}</p>
+      <p className="status">{getStatut()}</p>
       {filteredLieux !== null && (
         <CardList>
           {filteredLieux.map((lieu, index) => (
@@ -89,6 +88,11 @@ function App() {
               titre={lieu.nom_tournage}
               lieu={lieu.adresse_lieu}
               realisateur={lieu.nom_realisateur}
+              producteur={lieu.nom_producteur}
+              type_tournage={lieu.type_tournage}
+              annee_tournage={lieu.annee_tournage}
+              date_debut={lieu.date_debut}
+              date_fin={lieu.date_fin}
             />
           ))}
         </CardList>

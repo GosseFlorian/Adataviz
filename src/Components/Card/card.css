@@ -1,3 +1,19 @@
+.card{
+
+    .title-card{
+
+    }
+    .lieu-card{
+
+    }
+    .infos-card{
+       
+        .info{
+        
+        }
+    }
+}
+
 .hide{
     display: none;
 }
