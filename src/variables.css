@@ -1,0 +1,22 @@
+:root {
+  --color-bg: #ffffff;
+  --color-bg-card: #f9f9f9;
+  --color-border: #e0e0e0;
+  --color-border-input: #cccccc;
+  --color-border-input-focus: #888888;
+  --color-text: #222222;
+  --color-text-secondary: #555555;
+  --color-text-light: #444444;
+  --color-text-status: #666666;
+
+  --border-radius-card: 8px;
+  --border-radius-button: 4px;
+  --border-radius-input: 6px;
+
+  --font-size-title: 24px;
+  --font-size-normal: 16px;
+  --font-size-small: 14px;
+  --font-size-xsmall: 13px;
+
+  --gap: 16px;
+}
