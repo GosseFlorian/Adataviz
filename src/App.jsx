@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 // import './App.css'
-// import { Button } from './components/Button/Button'
-// import { Card } from './components/card/Card'
-// import { CardList } from './components/CardList/CardList'
-// import { SearchBar } from './components/SearchBar/SearchBar'
+import { Button } from './Components/Button/Button'
+import { Card } from './Components/Card/Card'
+import { CardList } from './Components/CardList/CardList'
+import { SearchBar } from './Components/SearchBar/SearchBar'
 
 function App() {
   const [lieux, setLieux] = useState([])

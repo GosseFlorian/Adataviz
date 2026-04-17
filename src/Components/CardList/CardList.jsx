@@ -4,7 +4,7 @@ import { Card } from '../Card/Card'
 export function CardList({cards, onClick}){
     return(
         <div className='card-list'>
-            {cards.maps(function(card, index){
+            {cards.map(function(card, index){
                 return(
                     <Card 
                         key={index}

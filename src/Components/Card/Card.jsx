@@ -1,4 +1,4 @@
-import './Card.css'
+import './card.css'
 
 export function Card({titre, lieu, realisateur, onClick}) {
   
