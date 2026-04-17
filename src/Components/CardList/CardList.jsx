@@ -1,20 +1,9 @@
 import './cardList.css'
-import { Card } from '../Card/Card'
 
-export function CardList({cards, onClick}){
+export function CardList({children}){
     return(
         <div className='card-list'>
-            {cards.map(function(card, index){
-                return(
-                    <Card 
-                        key={index}
-                        titre={card.nom_tournage}
-                        lieu={card.adresse_lieu}
-                        realisateur={card.nom_realisateur}
-                        onClick={onClick}
-                    />
-                )
-            })}
+            {children}
         </div>
     )
 }
